@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
+<body class="mb-4 flex items-center justify-center text-[40px] font-medium dark:text-neutral-100 flex-col">
    <h1> Melding informatie</h1>
 
 <p><strong>Titel:</strong> {{ $issue->titel }}</p>
