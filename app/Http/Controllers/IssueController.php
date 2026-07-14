@@ -80,7 +80,7 @@ class IssueController extends Controller
             'titel' => 'required|string|max:255',
             'beschrijving' => 'required|string',
             'locatie' => 'required|string|max:255',
-            'status' => 'required|in:open,in_behandeling,verwerkt',
+            'status' => 'required|in:open,in behandeling,verwerkt',
         ]);
 
         $issue = Issue::findOrFail($id);
