@@ -76,7 +76,22 @@ class IssueController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'titel' => 'required|string|max:255',
+            'beschrijving' => 'required|string',
+            'locatie' => 'required|string|max:255',
+            'status' => 'required|in:open,in_behandeling,verwerkt',
+        ]);
+
+        $issue = Issue::findOrFail($id);
+        $issue->update([
+            'titel' => $request->titel,
+            'beschrijving' => $request->beschrijving,
+            'locatie' => $request->locatie,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('issues.index');
     }
 
     /**
@@ -84,6 +99,9 @@ class IssueController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $issue = Issue::findOrFail($id);
+        $issue->delete();
+
+        return redirect()->route('issues.index');
     }
 }
