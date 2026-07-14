@@ -46,9 +46,9 @@
     <div>
         <label for="status">Status:</label>
         <select name="status" id="status" class="border border-gray-300 rounded-md p-2 w-full">
-            <option value="open" {{ $issue->status === 'open' ? 'selected' : '' }}>Open</option>
-            <option value="in behandeling" {{ $issue->status === 'in_behandeling' ? 'selected' : '' }}>In Behandeling</option>
-            <option value="verwerkt" {{ $issue->status === 'verwerkt' ? 'selected' : '' }}>Verwerkt</option>
+            <option value="open" {{ $issue->status === 'open' ? 'selected' : 'selected' }}>Open</option>
+            <option value="in behandeling" {{ $issue->status === 'in_behandeling' ? 'selected' : 'selected' }}>In Behandeling</option>
+            <option value="verwerkt" {{ $issue->status === 'verwerkt' ? 'selected' : 'selected' }}>Verwerkt</option>
         </select>
     </div>
 
