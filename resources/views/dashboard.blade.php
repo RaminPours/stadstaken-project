@@ -14,7 +14,7 @@
                 class="relative max-w-2xl">
                 <p 
                     class="mb-3 text-sm font-bold uppercase tracking-widest text-emerald-500"
-                    >Welkom terug, {{  }} 👀
+                    >Welkom terug, {{ auth()->user()->name }} 👀
                 </p>
                 <h1 
                     class="text-3xl font-extrabold tracking-tight sm:text-4xl"
@@ -34,14 +34,24 @@
 
         <section 
                 class="mt-8 grid gap-4 sm:grid-cols-3">
-            @foreach ([['label' => 'Mijn meldingen', 'value' => $totalIssues, 'color' => 'text-slate-900'], ['label' => 'Nog open', 'value' => $openIssues, 'color' => 'text-amber-600'], ['label' => 'Afgerond', 'value' => $completedIssues, 'color' => 'text-emerald-600']] as $stat)
+            @foreach ([['label' => 'Mijn meldingen', 
+                        'value' => $totalIssues, 
+                        'color' => 'text-slate-900'], 
+                       ['label' => 'Nog open', 
+                        'value' => $openIssues, 
+                        'color' => 'text-amber-600'], 
+                       ['label' => 'Afgerond', 
+                        'value' => $completedIssues, 
+                        'color' => 'text-emerald-600']] as $stat)
                 <div 
                     class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                     <p 
-                        class="text-sm font-semibold text-slate-500">{{ $stat['label'] }}
+                        class="text-sm font-semibold text-slate-500"
+                        >{{ $stat['label'] }}
                     </p>
                     <p 
-                        class="mt-2 text-3xl font-extrabold {{ $stat['color'] }}">{{ $stat['value'] }}
+                        class="mt-2 text-3xl font-extrabold {{ $stat['color'] }}"
+                        >{{ $stat['value'] }}
                     </p>
                 </div>
             @endforeach
