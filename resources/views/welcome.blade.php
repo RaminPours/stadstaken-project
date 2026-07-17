@@ -16,7 +16,7 @@
                 href="/" 
                 class="flex items-center gap-3">
             <span 
-                class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 font-extrabold"
+                class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600 font-extrabold"
                 >S
             </span>
             <span 
