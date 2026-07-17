@@ -9,7 +9,14 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $issues = auth()->user()->issues();
+
+    return view('dashboard', [
+        'recentIssues' => (clone $issues)->latest()->take(3)->get(),
+        'totalIssues' => (clone $issues)->count(),
+        'openIssues' => (clone $issues)->where('status', 'open')->count(),
+        'completedIssues' => (clone $issues)->where('status', 'verwerkt')->count(),
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // met middleware auth kunnen we de routes alleen toegankelijk maken voor ingelogde gebruikers

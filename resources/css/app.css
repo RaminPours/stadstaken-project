@@ -1,9 +1,31 @@
-@import "tailwindcss/base";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import "tailwindcss/components";
+@layer base {
+    body {
+        @apply bg-slate-50 text-slate-900;
+    }
 
-@import "tailwindcss/utilities";
+    ::selection {
+        @apply bg-emerald-200 text-emerald-950;
+    }
+}
 
+@layer components {
+    .form-label {
+        @apply mb-2 block text-sm font-semibold text-slate-700;
+    }
 
-@import "tailwindcss";
+    .form-input {
+        @apply block w-full rounded-xl border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:ring-emerald-500;
+    }
 
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2;
+    }
+}
